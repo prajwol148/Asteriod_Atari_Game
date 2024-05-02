@@ -12,18 +12,18 @@ import javafx.stage.Stage;
 import java.util.HashMap;
 
 public class AsteroidApplication extends Application {
+
     public void start(Stage stage) throws Exception{
         Pane pane= new Pane();
         pane.setPrefSize(600,400);
 
         //Creating ship
-        Polygon triangleShip = new Polygon(-5, -5, 10, 0, -5, 5);
-        triangleShip.setTranslateX(300);
-        triangleShip.setTranslateY(200);
+        Ship triangleShip= new Ship(150,100);
 
 
 
-        pane.getChildren().add(triangleShip);
+
+        pane.getChildren().add(triangleShip.getCharacter());
 
 
         Scene scene= new Scene(pane);
@@ -40,10 +40,10 @@ public class AsteroidApplication extends Application {
         new AnimationTimer(){
             public void handle(long now){
                 if(keypressed.getOrDefault(KeyCode.LEFT, false)){
-                    triangleShip.setRotate(triangleShip.getRotate()-5);
+                    triangleShip.turnLeft();
                 }
                 if(keypressed.getOrDefault(KeyCode.RIGHT,false)){
-                    triangleShip.setRotate(triangleShip.getRotate()+5);
+                    triangleShip.turnRight();
                 }
             }
         }.start();
