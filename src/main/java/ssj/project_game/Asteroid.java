@@ -1,5 +1,9 @@
 package ssj.project_game;
 
+import javafx.scene.paint.Color;
+import javafx.scene.paint.CycleMethod;
+import javafx.scene.paint.LinearGradient;
+import javafx.scene.paint.Stop;
 import javafx.scene.shape.Polygon;
 
 import java.util.Random;
@@ -10,6 +14,17 @@ public class Asteroid extends Character {
 
     public Asteroid(int x, int y) {
         super(new PolygonFactory().createPolygon(), x, y);
+
+        // Create a linear gradient for the asteroid's fill
+        Stop[] stops = new Stop[] {
+                new Stop(0, Color.RED),
+                new Stop(0.5, Color.ORANGE),
+                new Stop(1, Color.YELLOW)
+        };
+        LinearGradient gradient = new LinearGradient(0, 0, 1, 1, true, CycleMethod.NO_CYCLE, stops);
+
+        // Apply the gradient as the fill for the asteroid
+        super.getCharacter().setFill(gradient);
 
         Random rnd = new Random();
 

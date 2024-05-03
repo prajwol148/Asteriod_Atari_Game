@@ -76,6 +76,16 @@ public abstract class Character {
         this.movement = this.movement.add(changeX, changeY);
     }
 
+    public void deaccelerate() {
+        double changeX = Math.cos(Math.toRadians(this.character.getRotate()));
+        double changeY = Math.sin(Math.toRadians(this.character.getRotate()));
+
+        changeX *= -0.05;
+        changeY *= -0.05;
+
+        this.movement = this.movement.add(changeX, changeY);
+    }
+
     public boolean collide(Character other) {
         Shape collisionArea = Shape.intersect(this.character, other.getCharacter());
         return collisionArea.getBoundsInLocal().getWidth() != -1;

@@ -3,13 +3,20 @@ package ssj.project_game;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaView;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Polygon;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -25,7 +32,25 @@ public class AsteroidApplication extends Application {
         Pane pane= new Pane();
         pane.setPrefSize(WIDTH, HEIGHT);
 
-        Text text = new Text(10, 20, "Score: 0");
+        Image backgroundImage = new Image("file:bg.jpg");
+        if (backgroundImage.isError()) {
+            System.out.println("Error loading background image.");
+        } else {
+            System.out.println("Background image loaded successfully.");
+        }
+
+        ImageView backgroundImageView = new ImageView(backgroundImage);
+        backgroundImageView.setFitWidth(WIDTH);
+        backgroundImageView.setFitHeight(HEIGHT);
+        pane.getChildren().add(backgroundImageView);
+
+
+
+
+        Text text = new Text(WIDTH / 2.2, 50, "Score: 0");
+        text.setFont(javafx.scene.text.Font.font("Arial", javafx.scene.text.FontWeight.BOLD, 30));
+        text.setFill(javafx.scene.paint.Color.YELLOW);
+        text.setTextAlignment(javafx.scene.text.TextAlignment.CENTER);
 
         AtomicInteger points = new AtomicInteger();
 
@@ -82,6 +107,9 @@ public class AsteroidApplication extends Application {
 
                 if (keypressed.getOrDefault(KeyCode.UP, false)) {
                     triangleShip.accelerate();
+                }
+                if (keypressed.getOrDefault(KeyCode.DOWN, false)) {
+                    triangleShip.deaccelerate();
                 }
 
                 if (keypressed.getOrDefault(KeyCode.SPACE, false) && projectiles.size()<3) {
