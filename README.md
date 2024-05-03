@@ -41,7 +41,7 @@ Contributions are welcome! If you'd like to enhance this game or fix any issues,
 
 
 ## Screenshots:
-![3](https://github.com/prajwol148/Asteriod_Atari_Game/assets/68413988/86dd7abc-cea0-4d39-a4ae-9dc3ec512e0e)
-![2](https://github.com/prajwol148/Asteriod_Atari_Game/assets/68413988/4a2abd32-0da4-4f61-b7ce-db3040e0ef7a)
 ![1](https://github.com/prajwol148/Asteriod_Atari_Game/assets/68413988/b45ebb06-5821-47f4-8200-1d8206bfb2f5)
+![2](https://github.com/prajwol148/Asteriod_Atari_Game/assets/68413988/4a2abd32-0da4-4f61-b7ce-db3040e0ef7a)
+![3](https://github.com/prajwol148/Asteriod_Atari_Game/assets/68413988/86dd7abc-cea0-4d39-a4ae-9dc3ec512e0e)
 
